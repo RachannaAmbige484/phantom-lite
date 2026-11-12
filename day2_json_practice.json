@@ -1,0 +1,12 @@
+{
+    "project": "PHANTOM Lite",
+    "developer": "Rachanna",
+    "language": "Python",
+    "year": 2026,
+    "technologies": [
+        "FastAPI",
+        "Streamlit",
+        "RAG"
+    ],
+    "completed": true
+}

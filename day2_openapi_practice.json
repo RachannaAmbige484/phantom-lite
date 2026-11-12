@@ -1,0 +1,41 @@
+{
+    "openapi": "3.0.3",
+
+    "info": {
+        "title": "Student API",
+        "version": "1.0.0"
+    },
+
+    "paths": {
+        "/students": {
+            "get": {
+                "summary": "Get all students",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            },
+
+            "post": {
+                "summary": "Create a student",
+                "responses": {
+                    "201": {
+                        "description": "Student created"
+                    }
+                }
+            }
+        },
+
+        "/students/{id}": {
+            "delete": {
+                "summary": "Delete a student",
+                "responses": {
+                    "200": {
+                        "description": "Student deleted"
+                    }
+                }
+            }
+        }
+    }
+}
