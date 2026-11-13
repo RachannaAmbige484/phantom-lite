@@ -13,14 +13,20 @@ def extract_endpoints(filepath):
     endpoints = []
 
     # Pattern to identify FastAPI endpoints
-    pattern = r'@app\.(get|post|put|delete|patch)\(\s*["\']([^"\']+)["\']\s*\)'
+    pattern = r'@app\.(get|post|put|delete|patch)\(\s*["\']([^"\']+)["\'][^)]*\)'
 
     # Find all matching endpoints
     matches = re.findall(pattern, code)
 
+    # Store endpoints in the list
     for method, path in matches:
-        print(method.upper(), path)
+        endpoints.append((method.upper(), path))
+
+    return endpoints
 
 
 # Test the scanner
-extract_endpoints("main.py")
+result = extract_endpoints("main.py")
+
+print("\nDiscovered Endpoints:")
+print(result)
