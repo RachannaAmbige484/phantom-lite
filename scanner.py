@@ -26,7 +26,8 @@ def extract_endpoints(filepath):
 
 
 # Test the scanner
-result = extract_endpoints("main.py")
+if __name__ == "__main__":
+    result = extract_endpoints("main.py")
 
-print("\nDiscovered Endpoints:")
-print(result)
+    print("\nDiscovered Endpoints:")
+    print(result)
