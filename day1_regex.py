@@ -3,7 +3,9 @@ import re
 
 # Sample FastAPI code
 code = """
-@app.get("/users")
+@app.get(
+    "/users"
+)
 def get_users():
     return {"users": []}
 
@@ -14,10 +16,13 @@ def login():
 @app.delete("/users/{id}")
 def delete_user():
     return {"message": "Deleted"}
+    @app.put("/students/{student_id}")
+def update_student():
+    return {"message": "Updated"}
 """
 
 # Create a pattern to identify API decorators
-pattern = r'@app\.(get|post|put|delete|patch)\(["\']([^"\']+)["\']\)'
+pattern = r'@app\.(get|post|put|delete|patch)\(\s*["\']([^"\']+)["\']\s*\)'
 
 # Search for all matching patterns
 matches = re.findall(pattern, code)
