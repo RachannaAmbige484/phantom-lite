@@ -27,3 +27,7 @@ def delete_student(student_id: int):
 @app.get("/secret", include_in_schema=False)
 def secret_endpoint():
     return {"message": "This endpoint is hidden from documentation"}
+# Another hidden endpoint for testing
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
