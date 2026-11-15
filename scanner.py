@@ -6,8 +6,13 @@ def extract_endpoints(filepath):
     print("PHANTOM Scanner Started")
 
     # Read the Python source file
-    with open(filepath, "r", encoding="utf-8") as file:
-        code = file.read()
+    try:
+        with open(filepath, "r", encoding="utf-8") as file:
+            code = file.read()
+
+    except FileNotFoundError:
+        print(f"Error: Python source file '{filepath}' not found.")
+        return []
 
     # Store discovered endpoints
     endpoints = []

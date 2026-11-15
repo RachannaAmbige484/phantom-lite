@@ -1,0 +1,62 @@
+[
+    {
+        "method": "GET",
+        "path": "/users",
+        "description": "Retrieve a list of all registered users.",
+        "response": "Returns an array containing user details."
+    },
+    {
+        "method": "GET",
+        "path": "/users/{user_id}",
+        "description": "Retrieve details of a specific user using their ID.",
+        "response": "Returns the requested user's information."
+    },
+    {
+        "method": "POST",
+        "path": "/users",
+        "description": "Create a new user account.",
+        "response": "Returns the newly created user details."
+    },
+    {
+        "method": "PUT",
+        "path": "/users/{user_id}",
+        "description": "Update the details of an existing user.",
+        "response": "Returns the updated user information."
+    },
+    {
+        "method": "DELETE",
+        "path": "/users/{user_id}",
+        "description": "Delete a user account using their ID.",
+        "response": "Returns a deletion confirmation message."
+    },
+    {
+        "method": "GET",
+        "path": "/students",
+        "description": "Retrieve a list of all registered students.",
+        "response": "Returns an array containing student details."
+    },
+    {
+        "method": "POST",
+        "path": "/students",
+        "description": "Register a new student in the system.",
+        "response": "Returns the newly registered student details."
+    },
+    {
+        "method": "GET",
+        "path": "/products",
+        "description": "Retrieve all available products.",
+        "response": "Returns a list of products with their details."
+    },
+    {
+        "method": "POST",
+        "path": "/login",
+        "description": "Authenticate a user using their login credentials.",
+        "response": "Returns an authentication result."
+    },
+    {
+        "method": "GET",
+        "path": "/orders",
+        "description": "Retrieve all orders placed by customers.",
+        "response": "Returns a list of order details."
+    }
+]

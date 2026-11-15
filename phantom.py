@@ -19,6 +19,11 @@ discovered_endpoints = extract_endpoints(source_file)
 # Load OpenAPI documentation
 spec = load_openapi(documentation_file)
 
+# Stop analysis if documentation cannot be loaded
+if not spec:
+    print("\nAnalysis stopped due to an OpenAPI file error.")
+    exit()
+
 # Extract documented endpoints
 documented_endpoints = extract_documented_endpoints(spec)
 

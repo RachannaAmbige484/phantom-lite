@@ -2,27 +2,47 @@ import json
 from scanner import extract_endpoints
 
 
-# Load OpenAPI documentation
 def load_openapi(filepath):
 
-    with open(filepath, "r", encoding="utf-8") as file:
-        data = json.load(file)
+    try:
+        with open(filepath, "r", encoding="utf-8") as file:
+            data = json.load(file)
 
-    return data
+        return data
+
+    except FileNotFoundError:
+        print(f"Error: OpenAPI file '{filepath}' not found.")
+        return {}
+
+    except json.JSONDecodeError:
+        print(f"Error: OpenAPI file '{filepath}' contains invalid JSON.")
+        return {}
 
 
-# Extract documented endpoints
 def extract_documented_endpoints(spec):
 
     endpoints = []
 
     paths = spec["paths"]
 
+    # Allowed HTTP methods
+    allowed_methods = [
+        "get",
+        "post",
+        "put",
+        "delete",
+        "patch",
+        "options",
+        "head",
+        "trace"
+    ]
+
     for path, methods in paths.items():
 
         for method in methods:
 
-            endpoints.append((method.upper(), path))
+            if method.lower() in allowed_methods:
+                endpoints.append((method.upper(), path))
 
     return endpoints
 

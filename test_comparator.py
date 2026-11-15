@@ -24,3 +24,28 @@ print("\nUndocumented Endpoints:")
 
 for method, path in missing:
     print(method, path)
+    # Test whether HTTP methods are compared correctly
+
+test_discovered = [("GET", "/students")]
+
+test_documented = [("POST", "/students")]
+
+test_missing = compare_endpoints(
+    test_discovered,
+    test_documented
+)
+
+print("\nHTTP Method Test:")
+print(test_missing)
+# Test missing OpenAPI file
+print("\nTesting Missing OpenAPI File:")
+
+result = load_openapi("unknown.json")
+
+print("Result:", result)
+# Test invalid JSON file
+print("\nTesting Invalid JSON:")
+
+result = load_openapi("invalid.json")
+
+print("Result:", result)
